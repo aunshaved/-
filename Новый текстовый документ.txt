@@ -1,0 +1,258 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1
+{
+    public partial class Автомат : Form
+    {
+        public Автомат()
+        {
+            InitializeComponent();
+        }
+
+        private void Автомат_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+        int cola = 40;
+        int bis = 30;
+        int sn = 35;
+        int orb = 25;
+        int san = 90;
+        int den = 0;
+        int colacol = 10;
+        int biscol = 15;
+        int sncol = 16;
+        int orbcol = 18;
+        int sancol = 3;
+        int prib = 0;
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                den = Convert.ToInt32(textBox1.Text);
+                textBox1.Text = Convert.ToString(den);
+                button1.Enabled=true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+            }
+            catch
+            {
+                den = 0;
+                textBox1.Text = "0";
+            }
+            button7.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(den>=cola)
+            {
+                if(colacol>0)
+                {
+                    textBox2.Visible = true;
+                    textBox2.Text = "Выдано";
+ 
+                    textBox1.Text = Convert.ToString(den);
+                    timer1.Start();
+                    colacol--;
+                    prib += den;
+                    den = 0;
+                }
+                else
+                {
+                    textBox2.Text = "Нет в наличии";
+                    pictureBox7.BackColor = Color.Red;
+                }
+               
+                
+            }
+
+            button7.Enabled = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox2.Visible = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+            den = 0;
+            textBox1.Text = "0";
+            timer1.Stop();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+            if (den >= bis)
+            {
+                if (biscol > 0)
+                {
+                    textBox2.Visible = true;
+                    textBox2.Text = "Выдано";
+
+                    textBox1.Text = Convert.ToString(den);
+                    timer1.Start();
+                    biscol--;
+                    prib += den;
+                    den = 0;
+                }
+                else
+                {
+                    textBox2.Text = "Нет в наличии";
+                    pictureBox8.BackColor = Color.Red;
+                }
+
+
+            }
+            button7.Enabled = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            if (den >= sn)
+            {
+                if (sncol > 0)
+                {
+                    textBox2.Visible = true;
+                    textBox2.Text = "Выдано";
+
+                    textBox1.Text = Convert.ToString(den);
+                    timer1.Start();
+                    sncol--;
+                    prib += den;
+                    den = 0;
+                }
+                else
+                {
+                    textBox2.Text = "Нет в наличии";
+                    pictureBox9.BackColor = Color.Red;
+                }
+
+
+            }
+            button7.Enabled = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            if (den >= orb)
+            {
+                if (orbcol > 0)
+                {
+                    textBox2.Visible = true;
+                    textBox2.Text = "Выдано";
+                    textBox1.Text = Convert.ToString(den);
+                    timer1.Start();
+                    orbcol--;
+                    prib += den;
+                    den = 0;
+                }
+                else
+                {
+                    textBox2.Text = "Нет в наличии";
+                    pictureBox10.BackColor = Color.Red;
+                }
+
+
+            }
+            button7.Enabled = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            if (den >= san)
+            {
+                if (sancol > 0)
+                {
+                    textBox2.Visible = true;
+                    textBox2.Text = "Выдано";
+                    
+                    textBox1.Text = Convert.ToString(den);
+                    timer1.Start();
+                    sancol--;
+                    prib += den;
+                    den = 0;
+                }
+                else
+                {
+                    textBox2.Text = "Нет в наличии";
+                    pictureBox11.BackColor = Color.Red;
+                }
+
+
+            }
+            button7.Enabled = false;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+            textBox2.Visible = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+            button3.Enabled = false;
+            button4.Enabled = false;
+            button5.Enabled = false;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            char s;
+            s = Convert.ToChar(textBox1.Text);
+            if (s == '*')
+            {
+                textBox1.Text = Convert.ToString(prib);
+                prib = 0;
+            }
+            button7.Enabled = true;
+                
+        }
+    }
+}
